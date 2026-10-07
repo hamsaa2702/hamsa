@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  Demonstration of:
+  a) Image as a background
+  b) Hyperlink using an image
+  c) Hyperlink to another web page
+
+  NOTE: This file uses two small built-in SVG images (as data: URLs) so the
+  page works immediately without needing separate image files.
+  To use your OWN pictures instead, just replace:
+    - "bg.jpg"     with the path/filename of your background image
+    - "button.png" with the path/filename of your clickable image
+  and put those image files in the same folder as this HTML file.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Images and Hyperlinks Demo</title>
+
+<style>
+  /* ---------- a) IMAGE AS A BACKGROUND ---------- */
+  body {
+    /* The background-image property sets a picture as the page background */
+    background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">\
+<rect width="400" height="400" fill="%23dbe9f4"/>\
+<circle cx="70" cy="70" r="40" fill="%23a9cbe8"/>\
+<circle cx="330" cy="300" r="60" fill="%23c9e0f2"/>\
+</svg>');
+    background-repeat: repeat;      /* tile the image across the page */
+    background-size: 200px 200px;   /* size of each tile */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #222;
+  }
+
+  .box {
+    background: rgba(255,255,255,0.85);
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  img.clickable {
+    border: 3px solid #444;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>HTML: Images &amp; Hyperlinks</h1>
+    <p>(a) This whole page's background is an image, set using CSS
+       <code>background-image</code>.</p>
+  </div>
+
+  <div class="box">
+    <h2>(b) Hyperlink Using an Image</h2>
+    <p>Click the picture below &mdash; the image itself is the link:</p>
+
+    <!--
+      An <a> tag wrapped around an <img> tag turns the image into a
+      clickable hyperlink.
+    -->
+    <a href="https://www.google.com" target="_blank">
+      <img class="clickable"
+           src="data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100'>\
+<rect width='150' height='100' fill='%234a90d9'/>\
+<text x='75' y='55' font-size='16' fill='white' text-anchor='middle'>Click Me</text>\
+</svg>"
+           alt="Click to visit Google"
+           width="150" height="100">
+    </a>
+    <p><em>(Replace the src above with "button.png" to use your own image.)</em></p>
+  </div>
+
+  <div class="box">
+    <h2>(c) Hyperlink to Another Web Page</h2>
+    <!-- A normal text hyperlink using the <a> tag -->
+    <p>
+      <a href="https://www.wikipedia.org" target="_blank">
+        Visit Wikipedia
+      </a>
+    </p>
+  </div>
+
+</body>
+</html>
